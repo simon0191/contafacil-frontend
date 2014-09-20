@@ -2,6 +2,7 @@ angular.module( 'cf', [
   'templates-app',
   'templates-common',
   'cf.signup',
+  'cf.dashboard',
   'ui.router',
   'ui.bootstrap',
   'ui.event',

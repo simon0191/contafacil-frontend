@@ -68,6 +68,12 @@ angular.module( 'cf.signup', [
         }
       });
     };
+    $scope.submitInitialBalance = function() {
+      //TODO: call initial balance service
+      $location.path('/dashboard');
+    };
+
+    //Events
     $rootScope.$on('initialBalance:addAccount', function(event, account) {
       $scope.accounts.push(account);
       $scope.updateTotals();
