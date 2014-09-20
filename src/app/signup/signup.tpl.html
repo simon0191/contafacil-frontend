@@ -1,0 +1,60 @@
+<div class="container" ng-controller="SignupCtrl">
+  <div class="row row-centered registry-step-header">
+    <div class="col-xs-8 text-left col-centered">
+      <h2 class="registry-title">
+        Paso 1 de 2: Registra tu empresa
+      </h2>
+    </div>
+  </div>
+  <!-- END registry-step-header -->
+  <div class="row row-centered">
+    <div class="col-xs-8 col-centered">
+      <form class="">
+        <div class="registry-form">
+          <h3>Datos del usuario</h3>
+          <div class="form-group">
+            <label for="user-name">Nombre</label>
+            <input id="user-name" type="text" class="form-control" ng-model="user.name">
+          </div>
+          <div class="form-group">
+            <label for="user-email">Email</label>
+            <input id="user-email" type="email" class="form-control" ng-model="user.email">
+          </div>
+          <div class="form-group">
+            <label for="user-password">Contraseña</label>
+            <input id="user-password" type="password" class="form-control" ng-model="user.password">
+          </div>
+          <div class="form-group">
+            <label for="user-pasword-confirm">Confirmación de contraseña</label>
+            <input id="user-pasword-confirm" type="password" class="form-control" ng-model="user.passwordConfirm">
+          </div>
+        </div>
+        <div class="registry-form">
+          <h3>Datos de la empresa</h3>
+          <div class="form-group">
+            <label for="company-name">Nombre de la empresa</label>
+            <input id="company-name" type="text" class="form-control" ng-model="company.name">
+          </div>
+          <div class="form-group">
+            <label for="company-nit">NIT</label>
+            <input id="company-nit" type="text" class="form-control" ng-model="company.nit">
+          </div>
+          <div class="form-group">
+            <label for="company-phone">Teléfono</label>
+            <input id="company-phone" type="text" class="form-control" ng-model="company.phone">
+          </div>
+          <div class="form-group">
+            <label for="company-address">Dirección</label>
+            <input id="company-address" type="text" class="form-control" ng-model="company.address">
+          </div>
+          <div class="row row-centered">
+            <div class="col-xs-4 col-centered text-center">
+              <a ng-click="submitSignupForm()" class="registry-next-step-btn btn btn-default">Siguiente Paso</a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
