@@ -9,16 +9,18 @@
   <!-- END registry-step-header -->
   <div class="row row-centered">
     <div class="col-xs-8 col-centered">
-      <form class="">
+      <form class="" name="form" novalidate>
         <div class="registry-form">
           <h3>Datos del usuario</h3>
-          <div class="form-group">
+          <div cf-required class="form-group">
             <label for="user-name">Nombre</label>
-            <input id="user-name" type="text" class="form-control" ng-model="user.name">
+            <input name="userName" id="user-name" type="text" class="form-control" ng-model="user.name" required>
+            <span class="help-block" ng-show="(form.$dirty && form.userName.$error.required)">Campo requerido</span>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{'has-error':(form.$dirty && form.userEmail.$error.required)}">
             <label for="user-email">Email</label>
-            <input id="user-email" type="email" class="form-control" ng-model="user.email">
+            <input name="userEmail" id="user-email" type="email" class="form-control" ng-model="user.email" required>
+            <span class="help-block" ng-show="(form.$dirty && form.userEmail.$error.required)">Campo requerido</span>
           </div>
           <div class="form-group">
             <label for="user-password">Contraseña</label>
@@ -49,7 +51,12 @@
           </div>
           <div class="row row-centered">
             <div class="col-xs-4 col-centered text-center">
-              <a ng-click="submitSignupForm()" class="registry-next-step-btn btn btn-default">Siguiente Paso</a>
+              <button
+                ng-disabled="form.$invalid"
+                ng-click="submitSignupForm()"
+                class="registry-next-step-btn btn btn-default">
+                Siguiente Paso
+              </button>
             </div>
           </div>
         </div>

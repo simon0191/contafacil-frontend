@@ -4,7 +4,8 @@ angular.module( 'cf', [
   'cf.signup',
   'ui.router',
   'ui.bootstrap',
-  'ui.event'
+  'ui.event',
+  'formHelpers'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
