@@ -14,7 +14,7 @@
 </nav>
 
 </div>
-<div class="container">
+<div class="container" ng-controller="DashboardCtrl">
   <div class="row">
     <div class="col-md-3">
       <form id="buscar" method="get">
@@ -22,7 +22,7 @@
             <input id="search-concept" name="q" type="text" class="form-control" placeholder="Buscar Concepto ...">
           </span>
       </form>
-      <div class="filter-box">
+      <div class="filter-box" ng-controller="TransactionsRegisteredFilter">
         <h3>Estado transacción</h3>
         <p>Selecciona para filtrar</p>
         <ul class="list-group">
@@ -32,70 +32,18 @@
       </div>
     </div>
     <div class="col-md-9">
-      <table class="table">
+      <table class="table table-hover">
         <tbody>
-          <tr class="ar-table">
+          <tr ng-repeat="tx in transactions" class="ar-table">
             <td class="date">
-              <span class="month">Sep</span>
-              <span class="day">09</span>
+              <span class="month">{{tx.date | date:'MMM'}}</span>
+              <span class="day">{{tx.date | date:'dd'}}</span>
             </td>
             <td class="info">
-                <div class="info-top clearfix">Egreso<span class="cf-pending">Pendiente</span><span class="value"><i class="cf-minus"></i>$130,000.00</span>
+                <div class="info-top clearfix">{{tx.transactionType}}<span ng-class="{'cf-done':tx.registered,'cf-pending':!tx.registered}">{{tx.registered?'Hecho':'Pendiente'}}</span><span class="value"><i class="cf-minus"></i>{{tx.amount | currency:'$COP '}}</span>
                 </div>
                 <div class="info-bottom">
-                  <span class="concept">Pago salario</span>
-                </div>
-            </td>
-          </tr>
-          <tr class="ar-table">
-            <td class="date">
-              <span class="month">Sep</span>
-              <span class="day">09</span>
-            </td>
-            <td class="info">
-                <div class="info-top clearfix">Egreso<span class="cf-pending">Pendiente</span><span class="value"><i class="cf-minus"></i>$130,000.00</span>
-                </div>
-                <div class="info-bottom">
-                  <span class="concept">Pago salario</span>
-                </div>
-            </td>
-          </tr>
-          <tr class="ar-table">
-            <td class="date">
-              <span class="month">Sep</span>
-              <span class="day">09</span>
-            </td>
-            <td class="info">
-                <div class="info-top clearfix">Egreso<span class="cf-pending">Pendiente</span><span class="value"><i class="cf-minus"></i>$130,000.00</span>
-                </div>
-                <div class="info-bottom">
-                  <span class="concept">Pago salario</span>
-                </div>
-            </td>
-          </tr>
-          <tr class="ar-table">
-            <td class="date">
-              <span class="month">Sep</span>
-              <span class="day">09</span>
-            </td>
-            <td class="info">
-                <div class="info-top clearfix">Egreso<span class="cf-pending">Pendiente</span><span class="value"><i class="cf-minus"></i>$130,000.00</span>
-                </div>
-                <div class="info-bottom">
-                  <span class="concept">Pago salario</span>
-                </div>
-            </td>
-          </tr>
-          <tr class="ar-table">
-            <td class="date">
-              <span class="month">Sep</span>
-              <span class="day">09</span>
-            </td>
-            <td class="info">
-                <div class="info-top clearfix">Ingreso<span class="cf-done">Hecho</span><span class="value"><i class="cf-plus"></i>$130,000.00</span>
-                </div>
-                <div class="info-bottom">
-                  <span class="concept">Factura la nueva educación</span>
+                  <span class="concept">{{tx.description}}</span>
                 </div>
             </td>
           </tr>
