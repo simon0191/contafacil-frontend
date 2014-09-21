@@ -39,13 +39,13 @@
     <div class="col-md-9">
       <table class="table table-hover">
         <tbody>
-          <tr ng-repeat="tx in transactions" class="ar-table">
+          <tr ng-repeat="tx in transactions" cf-transaction="tx" class="ar-table" style="cursor:pointer;">
             <td class="date">
               <span class="month">{{tx.date | date:'MMM'}}</span>
               <span class="day">{{tx.date | date:'dd'}}</span>
             </td>
             <td class="info">
-                <div class="info-top clearfix">{{tx.transactionType}}<span ng-class="{'cf-done':tx.pending,'cf-pending':!tx.pending}">{{tx.pending?'Hecho':'Pendiente'}}</span><span class="value"><i class="cf-minus"></i>{{tx.amount | currency:'$COP '}}</span>
+                <div class="info-top clearfix">{{tx.transactionType}}<span ng-class="{'cf-done':!tx.pending,'cf-pending':tx.pending}">{{tx.pending?'Pendiente':'Hecho'}}</span><span class="value"><i class="cf-minus"></i>{{tx.amount | currency:'$COP '}}</span>
                 </div>
                 <div class="info-bottom">
                   <span class="concept">{{tx.description}}</span>

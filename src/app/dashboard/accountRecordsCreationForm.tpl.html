@@ -1,0 +1,56 @@
+<div class="modal-header info">
+  <button type="button" class="close" ng-click="$close()">
+    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
+  <h4 class="modal-title" id="myModalLabel">Clasificar - {{transaction.description}}</h4>
+</div>
+<div class="modal-body">
+  <div class="row">
+      <div class="col-xs-12">
+        <table class="table">
+          <thead>
+              <th>Concepto</th>
+              <th>Valor</th>
+              <th>Cuenta</th>
+              <th>Fecha</th>
+              <th></th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="record in accountsRecords">
+              <td>
+                <input type="text" name="description" ng-model="record.description">
+              </td>
+              <td><input type="number" ng-model="record.amount"></td>
+              <td>
+                <div class="dropdown">
+                  <select name="account" id="" class="form-control" ng-model="record.account">
+                    <option ng-repeat="account in accounts" value="account.id">{{account.pucId}}-{{account.name}}</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <input type="date" class="form-control" ng-model="record.date">
+              </td>
+              <td>
+                <button class="btn btn-danger" ng-click="removeAccountRecord($index)">
+                  <i class="fa fa-minus danger"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <div class="row">
+    <div class=" col-xs-12">
+      <button type="button" class="btn btn-primary" ng-click="addAccountRecord()">
+        <i class="fa fa-plus"></i>
+        Registro Contable
+      </button>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="$close()">Cerrar</button>
+  <button type="button" class="btn btn-primary" ng-click="saveAccountsRecords()">Guardar</button>
+</div>
