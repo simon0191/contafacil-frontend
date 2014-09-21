@@ -2,14 +2,7 @@
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" id="brand" href="#">Contafácil</a>
-    </div>  
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Registro Contable</a></li>
-        <li><a href="#">Reportes</a></li>
-        <li><a href="#">Applicando</a></li>
-      </ul>   
-    </div>  
+    </div>
   </div>
 </nav>
 
@@ -23,17 +16,19 @@
   </div>
   <!-- END registry-step-header -->
   <div class="row row-centered">
-    <form class="">
-      <div class="col-md-6 col-centered">   
+    <div class="col-md-6 col-centered">
+      <form class="" name="form" novalidate>
         <div class="registry-form">
           <h3>Datos del usuario</h3>
-          <div class="form-group">
+          <div cf-required class="form-group">
             <label for="user-name">Nombre</label>
-            <input id="user-name" type="text" class="form-control" ng-model="user.name">
+            <input name="userName" id="user-name" type="text" class="form-control" ng-model="user.name" required>
+            <span class="help-block" ng-show="(form.$dirty && form.userName.$error.required)">Campo requerido</span>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-class="{'has-error':(form.$dirty && form.userEmail.$error.required)}">
             <label for="user-email">Email</label>
-            <input id="user-email" type="email" class="form-control" ng-model="user.email">
+            <input name="userEmail" id="user-email" type="email" class="form-control" ng-model="user.email" required>
+            <span class="help-block" ng-show="(form.$dirty && form.userEmail.$error.required)">Campo requerido</span>
           </div>
           <div class="form-group">
             <label for="user-password">Contraseña</label>
@@ -44,8 +39,8 @@
             <input id="user-pasword-confirm" type="password" class="form-control" ng-model="user.passwordConfirm">
           </div>
         </div>
-      </div> 
-      <div class="col-md-6">   
+      </div>
+      <div class="col-md-6">
         <div class="registry-form">
           <h3>Datos de la empresa</h3>
           <div class="form-group">
@@ -64,10 +59,16 @@
             <label for="company-address">Dirección</label>
             <input id="company-address" type="text" class="form-control" ng-model="company.address">
           </div>
-        </div>  
+        </div>
           <div class="row row-centered">
             <div class="text-center">
-              <a ng-click="submitSignupForm()" class="registry-next-step-btn btn btn-default" style="background-color: #8DCD08; color: white;">Siguiente Paso</a>
+              <!--ng-disabled="form.$invalid"-->
+              <button
+                ng-click="submitSignupForm()"
+                class="registry-next-step-btn btn btn-default"
+                style="background-color: #8DCD08; color: white;">
+                Siguiente Paso
+              </button>
             </div>
           </div>
         </div>

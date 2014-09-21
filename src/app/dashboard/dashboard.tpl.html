@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" id="brand" href="#">Contafácil</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Registro Contable</a></li>
+        <li><a href="#">Reportes</a></li>
+        <li><a href="#">Applicando</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div>
+<div class="container" ng-controller="DashboardCtrl">
+  <div class="row">
+    <div class="col-md-3">
+      <form id="buscar" method="get">
+          <span class="fieldwrap">
+            <input id="search-concept" name="q" type="text" class="form-control" placeholder="Buscar Concepto ...">
+          </span>
+      </form>
+      <div class="filter-box" cf-filter filter-name="pending" list-to-filter="transactions" filters="['pending','done']">
+        <h3>Estado transacción</h3>
+        <p>Selecciona para filtrar</p>
+        <ul class="list-group">
+          <li cf-filter-item class="list-group-item" cf-filter-item filter-name="done" filter-parent="pending">
+            Hecho
+          </li>
+          <li cf-filter-item class="list-group-item" cf-filter-item filter-name="pending" filter-parent="pending">
+            Pendiente
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <table class="table table-hover">
+        <tbody>
+          <tr ng-repeat="tx in transactions" cf-transaction="tx" class="ar-table" style="cursor:pointer;">
+            <td class="date">
+              <span class="month">{{tx.date | date:'MMM'}}</span>
+              <span class="day">{{tx.date | date:'dd'}}</span>
+            </td>
+            <td class="info">
+                <div class="info-top clearfix">{{tx.transactionType}}<span ng-class="{'cf-done':!tx.pending,'cf-pending':tx.pending}">{{tx.pending?'Pendiente':'Hecho'}}</span><span class="value"><i class="cf-minus"></i>{{tx.amount | currency:'$COP '}}</span>
+                </div>
+                <div class="info-bottom">
+                  <span class="concept">{{tx.description}}</span>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

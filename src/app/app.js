@@ -2,9 +2,12 @@ angular.module( 'cf', [
   'templates-app',
   'templates-common',
   'cf.signup',
+  'cf.dashboard',
   'ui.router',
   'ui.bootstrap',
-  'ui.event'
+  'ui.event',
+  'formHelpers',
+  'cf.utils.directives'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
