@@ -1,3 +1,7 @@
+<div class="wrapper" style="background-image: url('/assets/images/home.png');
+background-size: cover;
+background-repeat: no-repeat;height:800px;">
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -12,8 +16,6 @@
     </div>
   </div>
 </nav>
-
-</div>
 <div class="container" ng-controller="DashboardCtrl">
   <div class="row">
     <div class="col-md-3">
@@ -39,7 +41,7 @@
     <div class="col-md-9">
       <table class="table table-hover">
         <tbody>
-          <tr ng-repeat="tx in transactions" cf-transaction="tx" class="ar-table" style="cursor:pointer;">
+          <tr style="background-color:white;" ng-repeat="tx in transactions" cf-transaction="tx" class="ar-table" style="cursor:pointer;">
             <td class="date">
               <span class="month">{{tx.date | date:'MMM'}}</span>
               <span class="day">{{tx.date | date:'dd'}}</span>
@@ -56,4 +58,5 @@
       </table>
     </div>
   </div>
+</div>
 </div>

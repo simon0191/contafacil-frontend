@@ -1,16 +1,30 @@
+<div class="wrapper" style="background-image: url('/assets/images/home.png');
+background-size: cover;
+background-repeat: no-repeat;">
+<nav class="navbar" role="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6">
+            <img src="/assets/images/logo-transparante.png" alt="" class="img-responsive pull-left" style="width: 60px;">
+              <h4 class="brand">
+              Conta<strong>fácil</strong>
+              <h4>
+            </div>
+            <div class="col-xs-6 text-right">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="#que-es" class="navbar-link">¿Qué es?</a>
+                </li>
+                <li>
+                  <a href="#beneficios" class="navbar-link">Beneficios</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
 
 <div class="container" ng-controller="InitialBalanceCtrl">
-  <nav class="registry-navbar">
-    <div class="container">
-      <div class="row registry-header">
-        <div class="col-xs-6 pull-left">
-          <h3 class="logo-contafacil">
-          Conta<strong>fácil</strong>
-          </h3>
-        </div>
-      </div>
-    </div>
-  </nav>
   <div class="container" style="margin-top: 20px;">
     <div class="row row-centered registry-step-header">
       <div class="col-xs-12 text-left col-centered">
@@ -20,7 +34,7 @@
       </div>
     </div>
     <!-- END registry-step-header -->
-    <div class="row row-centered">
+    <div class="row row-centered" style="background-color:white;border-radius:5px;padding-top:10px;">
       <div class="col-xs-12 col-centered">
         <tabset id="accounts-registry-tab-content" class="tab-content">
           <button class="btn btn-default btn-info" ng-click="openAccountForm()"><i class="fa fa-plus"></i>
@@ -84,4 +98,5 @@
 
   </div>
 
+</div>
 </div>

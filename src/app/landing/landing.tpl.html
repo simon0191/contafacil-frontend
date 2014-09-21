@@ -1,0 +1,156 @@
+<div>
+  <div class="main" ng-controller="LandingCtrl">
+    <header>
+      <nav class="navbar" role="navigation">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6">
+            <img src="/assets/images/logo-transparante.png" alt="" class="img-responsive pull-left" style="width: 60px;">
+              <h4 class="brand">
+              Conta<strong>fácil</strong>
+              <h4>
+            </div>
+            <div class="col-xs-6 text-right">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="#que-es" class="navbar-link">¿Qué es?</a>
+                </li>
+                <li>
+                  <a href="#beneficios" class="navbar-link">Beneficios</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row row-centered">
+          <div class="col-xs-12 col-centered">
+            <h1 class="header">Contabilidad fácil para pymes</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="sub-header">Dedícate a tus negocios, nosotros nos encargamos de la contabilidad.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 signup-form-container">
+            <form id="signup-form" role="form">
+              <div class="row-centered">
+                <div class="form-group col-xs-6 form-col">
+                  <input id="name" class="signup-input form-control pull-right" placeholder="Nombre*"/>
+                  <span id="name-error" class="label label-danger" style="display:none;"></span>
+                </div>
+                <div class="form-group col-xs-6 form-col">
+                  <input id="email" class="signup-input form-control  pull-left" placeholder="Email*"/>
+                  <span id="email-error" class="label label-danger" style="display:none;"></span>
+                </div>
+              </div>
+              <div class="row row-centered">
+                <div class="form-group col-centered">
+                  <button ng-click="signup()" class="btn btn-success form-control signup-submit">Prueba gratis por 30 días</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#419641;">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          X
+          </button>
+          <h3 class="modal-title text-center">Gracias por registrarte</h3>
+        </div>
+        <div class="modal-body">
+          <p>Muy pronto te contacteremos para contarte más sobre Conta<strong>fácil</strong></P>
+        </div>
+        <!-- TODO: add FB share btn
+          <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+          -->
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <section class="what-is-container">
+    <div id="que-es" class="container">
+      <div class="row row-centered">
+        <div class="col-xs-12 col-centered page-header">
+          <h2 class="text-center">
+          ¿Qué es Contafácil?
+          <h2>
+        </div>
+      </div>
+      <div class="row row-centered">
+        <p class="col-xs-10 col-xs-offset-1 que-es">
+          Conta<strong>fácil</strong> es una herramienta de contabilidad online que está especialmente diseñada para que las pequeñas empresas puedan llevar su contabilidad de una manera <strong>fácil</strong>. Se acabaron los tiempos en los que tenías que acudir a costosos y complicados sistemas contables.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits details -->
+  <section class="benefits-container">
+    <div id="beneficios" class="container">
+      <div class="row row-centered">
+        <div class="col-xs-12 col-centered page-header">
+          <h2 class="text-center">
+          Beneficios
+          <h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <h3 class="text-center"><span class="glyphicon glyphicon-usd"/> Bajo costo</h3>
+          <p>
+            Conta<strong>fácil</strong> se adapta a tus necesidades así que únicamente <strong>pagas por lo que usas</strong>. No más módulos que ni siquiera el contador entiende.
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="row">
+            <h3 class="text-center"><span class="glyphicon glyphicon-ok"/> Fácil de usar</h3>
+          </div>
+          <p>
+            El objetivo número uno de nuestro equipo es hacer que Contafácil pueda ser usado por cualquier persona.
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <h3 class="text-center"><span class="glyphicon glyphicon-phone"/> Accesibilidad</h3>
+          <p>
+            Contafácil te permite ingresar tu información contable desde cualquier lugar y dispositivo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Invoicing container -->
+  <section class="invoice-container clearfix">
+    <div class="container feature-box">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Facturación al instante</h2>
+          <p>La facturación no tiene que ser complicada. Con contafácil crea facturas de manera rápida y sencilla. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -3,6 +3,7 @@ angular.module( 'cf', [
   'templates-common',
   'cf.signup',
   'cf.dashboard',
+  'cf.landing',
   'ui.router',
   'ui.bootstrap',
   'ui.event',
@@ -12,7 +13,7 @@ angular.module( 'cf', [
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/signup' );
+  $urlRouterProvider.otherwise( '/landing' );
 })
 
 .run( function run () {
