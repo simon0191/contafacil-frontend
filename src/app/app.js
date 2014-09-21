@@ -7,7 +7,8 @@ angular.module( 'cf', [
   'ui.bootstrap',
   'ui.event',
   'formHelpers',
-  'cf.utils.directives'
+  'cf.utils.directives',
+  'fiestah.money'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
@@ -17,12 +18,23 @@ angular.module( 'cf', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+.controller( 'AppCtrl', function AppCtrl ( $rootScope ,$scope, $location ) {
+  $rootScope.toEs = function(str) {
+    var es = {
+      'ASSETS':'Activos',
+      'LIABILITIES': 'Pasivos',
+      'EQUITY': 'Patrimonio'
+    };
+    return es[str];
+  };
+
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | Contafácil ' ;
     }
   });
+
+
 })
 
 ;

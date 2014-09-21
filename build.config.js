@@ -67,7 +67,8 @@ module.exports = {
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-ui-utils/modules/route/route.js',
-      'vendor/angular-ui-utils/ui-utils.js'
+      'vendor/angular-ui-utils/ui-utils.js',
+      'vendor/angular-money-directive/angular-money-directive.js'
     ],
     css: [
     ],

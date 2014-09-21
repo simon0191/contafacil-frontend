@@ -31,26 +31,28 @@
               <thead>
                 <tr>
                   <th class="col-xs-2">Código</th>
-                  <th class="col-xs-7">Nombre</th>
+                  <th class="col-xs-2">Tipo</th>
+                  <th class="col-xs-5">Nombre</th>
                   <th class="col-xs-3">Saldo inicial</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="account in accounts" id="{{account.id}}">
                   <td>{{account.pucId}}</td>
+                  <td>{{toEs(account.accountType)}}</td>
                   <td>{{account.name}}</td>
                   <td>
-                    <input ui-event="{ change : 'updateTotals()' }" type="number" ng-model="account.initialBalance">
+                    $ <input ui-event="{ change : 'updateTotals()' }" type="text" ng-model="account.initialBalance" money precision="2">
                   </td>
                 </tr>
               </tbody>
             </table>
-            <h4 class="text-right" style="margin-right: 210px;">Balance <span style="font-size: 24px; margin-left: 5px;">{{totalAssets-totalLiabilites-totalEquity}}</span></h4>
+            <h4 class="text-right" style="margin-right: 210px;" ng-class="{'text-danger':totalAssets-totalLiabilites-totalEquity !== 0.0 && totalAssets-totalLiabilites-totalEquity !== 0 && totalAssets-totalLiabilites-totalEquity !== '0.0'}">Balance <span ng-class="{'text-danger':totalAssets-totalLiabilites-totalEquity !== 0.0 && totalAssets-totalLiabilites-totalEquity !== 0 && totalAssets-totalLiabilites-totalEquity !== '0.0'}" style="font-size: 24px; margin-left: 5px;">{{totalAssets-totalLiabilities-totalEquity | currency:'$ '}}</span></h4>
             <button ng-click="submitInitialBalance()" class="registry-next-step-btn btn btn-default btn-success" style="font-weight: bold;">Siguiente Paso</button>
           </tab>
           <tab
-          ng-repeat="accountType in ['ASSETS','LIABILITIES','EQUITY','EXPENSES','REVENUE']"
-          heading="{{accountType}}">
+          ng-repeat="accountType in accountsTypes"
+          heading="{{accountType.es}}">
             <table class="table">
               <thead>
                 <tr>
@@ -60,7 +62,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="account in accounts | filter:{accountType:accountType}" id="{{account.id}}">
+                <tr ng-repeat="account in accounts | filter:{accountType:accountType.name}" id="{{account.id}}">
                   <td>{{account.pucId}}</td>
                   <td>{{account.name}}</td>
                   <td><input type="number" ng-model="account.initialBalance"></td>

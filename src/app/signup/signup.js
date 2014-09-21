@@ -43,6 +43,7 @@ angular.module( 'cf.signup', [
     $scope.totalAssets = 0;
     $scope.totalLiabilities = 0;
     $scope.totalEquity = 0;
+    $scope.accountsTypes = [{name:'ASSETS',es:'1-Activos'},{name:'LIABILITIES',es:'2-Pasivos'},{name:'EQUITY',es:'3-Patromonio'},{name:'REVENUE',es:'4-Ingresos'},{name:'EXPENSES',es:'5-Gastos'}];
     $scope.openAccountForm = function() {
       $modal.open({
         templateUrl: 'signup/accountCreationForm.tpl.html',
@@ -57,13 +58,13 @@ angular.module( 'cf.signup', [
       _($scope.accounts).each(function(account) {
         switch(account.accountType) {
           case 'ASSETS':
-            $scope.totalAssets+=account.initialBalance;
+            $scope.totalAssets+=parseFloat(account.initialBalance);
           break;
           case 'LIABILITIES':
-            $scope.totalLiabilities+=account.initialBalance;
+            $scope.totalLiabilities+=parseFloat(account.initialBalance);
           break;
           case 'EQUITY':
-            $scope.totalEquity+=account.initialBalance;
+            $scope.totalEquity+=parseFloat(account.initialBalance);
           break;
         }
       });
