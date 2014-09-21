@@ -6,7 +6,8 @@ angular.module( 'cf', [
   'ui.router',
   'ui.bootstrap',
   'ui.event',
-  'formHelpers'
+  'formHelpers',
+  'cf.utils.directives'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {

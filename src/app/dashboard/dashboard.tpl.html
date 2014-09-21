@@ -22,12 +22,17 @@
             <input id="search-concept" name="q" type="text" class="form-control" placeholder="Buscar Concepto ...">
           </span>
       </form>
-      <div class="filter-box" ng-controller="TransactionsRegisteredFilter">
+      <div class="filter-box" cf-filter filter-name="pending" list-to-filter="transactions" filters="['pending','done']">
         <h3>Estado transacción</h3>
         <p>Selecciona para filtrar</p>
         <ul class="list-group">
-          <li class="list-group-item">Hecho</li>
-          <li class="list-group-item">Pendiente</li>
+          <li cf-filter-item class="list-group-item" cf-filter-item filter-name="done" filter-parent="pending">
+            Hecho
+          </li>
+          <li cf-filter-item class="list-group-item" cf-filter-item filter-name="pending" filter-parent="pending">
+            Pendiente
+          </li>
+
         </ul>
       </div>
     </div>
@@ -40,7 +45,7 @@
               <span class="day">{{tx.date | date:'dd'}}</span>
             </td>
             <td class="info">
-                <div class="info-top clearfix">{{tx.transactionType}}<span ng-class="{'cf-done':tx.registered,'cf-pending':!tx.registered}">{{tx.registered?'Hecho':'Pendiente'}}</span><span class="value"><i class="cf-minus"></i>{{tx.amount | currency:'$COP '}}</span>
+                <div class="info-top clearfix">{{tx.transactionType}}<span ng-class="{'cf-done':tx.pending,'cf-pending':!tx.pending}">{{tx.pending?'Hecho':'Pendiente'}}</span><span class="value"><i class="cf-minus"></i>{{tx.amount | currency:'$COP '}}</span>
                 </div>
                 <div class="info-bottom">
                   <span class="concept">{{tx.description}}</span>

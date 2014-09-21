@@ -14,30 +14,24 @@ angular.module( 'cf.dashboard', [
   });
 })
 
-.controller( 'DashboardCtrl', ['$scope','usersService','$location', 'transactionsService',
-  function( $scope, usersService, $location, transactionsService ) {
+.controller( 'DashboardCtrl', [
+  '$scope','usersService','$location', 'transactionsService','$rootScope',
+  function( $scope, usersService, $location, transactionsService,$rootScope ) {
     //Scope vars
     $scope.transactions = [];
 
     //Utils
-
+    var updateList = function(query) {
+      transactionsService.list(query).then(function(transactions) {
+        $scope.transactions = transactions;
+      });
+    };
     //Events
-
-    //Start
-    transactionsService.list().then(function(transactions) {
-      $scope.transactions = transactions;
+    $rootScope.$on('filterChange:transactions', function(event,data) {
+      updateList(data.filterState);
     });
-
-}])
-.controller('TransactionsRegisteredFilter', ['$scope','usersService','$location', 'transactionsService',
-  function( $scope, usersService, $location, transactionsService ) {
-    //Scope vars
-
-    //Utils
-
-    //Events
-
     //Start
-    console.log('Yaju');
+    updateList();
+
 }])
 ;
