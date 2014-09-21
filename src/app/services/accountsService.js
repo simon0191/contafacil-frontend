@@ -6,8 +6,6 @@ angular.module( 'cf')
       {id:1,pucId:11,name:'Disponible',accountType:'ASSETS', companyId:1, initialBalance: "0"},
       {id:4,pucId:15,name:'Propiedad planta y equipo',accountType:'ASSETS', companyId:1, initialBalance: "0"},
 
-      {id:5,pucId:21,name:'Obligaciones financieras',accountType:'LIABILITIES', companyId:1, initialBalance: "0"},
-      {id:6,pucId:22,name:'Proveedores',accountType:'LIABILITIES', companyId:1, initialBalance: "0"},
       {id:7,pucId:23,name:'Cuentas por pagar',accountType:'LIABILITIES', companyId:1, initialBalance: "0"},
 
       {id:8,pucId:31,name:'Capital social',accountType:'EQUITY', companyId:1, initialBalance: "0"},
