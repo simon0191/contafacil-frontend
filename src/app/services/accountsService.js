@@ -4,8 +4,6 @@ angular.module( 'cf')
 
     var accounts = [
       {id:1,pucId:11,name:'Disponible',accountType:'ASSETS', companyId:1, initialBalance: "0"},
-      {id:2,pucId:13,name:'Deudores',accountType:'ASSETS', companyId:1, initialBalance: "0"},
-      {id:3,pucId:14,name:'Inventario',accountType:'ASSETS', companyId:1, initialBalance: "0"},
       {id:4,pucId:15,name:'Propiedad planta y equipo',accountType:'ASSETS', companyId:1, initialBalance: "0"},
 
       {id:5,pucId:21,name:'Obligaciones financieras',accountType:'LIABILITIES', companyId:1, initialBalance: "0"},

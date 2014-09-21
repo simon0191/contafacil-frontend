@@ -30,16 +30,23 @@
             <table class="table" style="margin-top: 30px;">
               <thead>
                 <tr>
-                  <th class="col-xs-2">Código</th>
+                  <th class="col-xs-1">Código</th>
                   <th class="col-xs-2">Tipo</th>
-                  <th class="col-xs-5">Nombre</th>
+                  <th class="col-xs-6">Nombre</th>
                   <th class="col-xs-3">Saldo inicial</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="account in accounts" id="{{account.id}}">
                   <td>{{account.pucId}}</td>
-                  <td>{{toEs(account.accountType)}}</td>
+                  <td>
+                    <i ng-class="{
+                      'fa fa-home': account.accountType == 'EQUITY',
+                      'fa fa-minus': account.accountType == 'LIABILITIES',
+                      'fa fa-plus': account.accountType == 'ASSETS'
+                    }"></i>
+                    {{toEs(account.accountType)}}
+                  </td>
                   <td>{{account.name}}</td>
                   <td>
                     $ <input ui-event="{ change : 'updateTotals()' }" type="text" ng-model="account.initialBalance" money precision="2">
@@ -65,7 +72,7 @@
                 <tr ng-repeat="account in accounts | filter:{accountType:accountType.name}" id="{{account.id}}">
                   <td>{{account.pucId}}</td>
                   <td>{{account.name}}</td>
-                  <td><input type="number" ng-model="account.initialBalance"></td>
+                  <td>$ <input ui-event="{ change : 'updateTotals()' }" type="text" ng-model="account.initialBalance" money precision="2"></td>
                 </tr>
               </tbody>
             </table>
